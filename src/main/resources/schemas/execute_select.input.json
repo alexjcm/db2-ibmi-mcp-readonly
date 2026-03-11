@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "description": "Input schema for the execute_select tool (validated read-only SELECT)",
+  "properties": {
+    "sql": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SELECT SQL query to execute (must be read-only; non-SELECT statements are rejected)"
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "Optional connection profile ID (e.g., ECUADOR or PANAMA). Normalized to uppercase without diacritics. If omitted, the default profile is used."
+    }
+  },
+  "required": [
+    "sql"
+  ],
+  "additionalProperties": false
+}

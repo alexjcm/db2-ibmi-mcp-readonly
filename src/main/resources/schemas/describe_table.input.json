@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "tableName": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Name of the table to describe (can be schema-qualified)"
+        },
+        "includeForeignKeys": { "type": "boolean", "description": "Include foreign keys metadata" },
+        "connectionId": { "type": "string", "description": "Optional connection profile ID (e.g., ECUADOR or PANAMA). Normalized to uppercase without diacritics. If omitted, the default profile is used." }
+    },
+    "required": [
+        "tableName"
+    ],
+    "additionalProperties": false
+}

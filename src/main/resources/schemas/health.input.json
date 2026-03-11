@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "connectionId": {
+      "type": "string",
+      "description": "Optional connection profile ID (e.g., ECUADOR or PANAMA). Normalized to uppercase without diacritics. If omitted, the default profile is used."
+    }
+  },
+  "additionalProperties": false
+}

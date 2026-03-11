@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "enum": [
+                "ok"
+            ]
+        },
+        "db": {
+            "type": "string",
+            "enum": [
+                "ok",
+                "error"
+            ],
+            "description": "Database connectivity status result"
+        },
+        "connectionId": {
+            "type": "string",
+            "description": "Effective connection profile ID used (default or requested)"
+        },
+        "error": {
+            "type": "object",
+            "description": "Present only on error; structured for agents",
+            "properties": {
+                "code": { "type": "string", "description": "Machine-parseable code, e.g., QUERY_TIMEOUT, NET_UNREACHABLE, AUTH_FAILED, SQL_ERROR, VALIDATION_ERROR" },
+                "message": { "type": "string", "description": "Human-readable message" }
+            },
+            "required": ["code", "message"],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "status",
+        "db"
+    ],
+    "additionalProperties": false
+}

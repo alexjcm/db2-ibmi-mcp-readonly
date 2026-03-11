@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "dataType": { "type": "string" },
+          "nullable": { "type": "boolean" }
+        },
+        "required": ["name", "dataType", "nullable"],
+        "additionalProperties": false
+      },
+      "description": "Column metadata for the result set"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Result rows from the query (may be limited by the tool's default row limit)"
+    },
+    "rowCount": { "type": "integer" },
+    "elapsedMs": { "type": "integer" },
+    "connectionId": { "type": "string", "description": "Effective connection profile ID used for this query" },
+    "error": {
+      "type": "object",
+      "description": "Present only on error",
+      "properties": {
+        "code": { "type": "string", "description": "Machine-parseable code, e.g., QUERY_TIMEOUT, NET_UNREACHABLE, AUTH_FAILED, SQL_ERROR, VALIDATION_ERROR" },
+        "message": { "type": "string", "description": "Human-readable message" }
+      },
+      "required": ["code", "message"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["columns", "rows", "rowCount", "elapsedMs"],
+  "additionalProperties": false
+}

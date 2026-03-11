@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "searchPattern": {
+            "type": "string",
+            "description": "Optional search pattern to filter tables. Used in a SQL LIKE clause. Supports wildcards: '%' (match zero or more characters) and '_' (match single character). Examples: '%CLIENTS%' (finds tables with CLIENTS in the name). To search in a specific schema, prepend it: 'SCHEMA_NAME.%'. If omitted, returns all tables for the current connection scheme."
+        },
+        "connectionId": {
+            "type": "string",
+            "description": "Optional connection profile ID (e.g., ECUADOR or PANAMA). Normalized to uppercase without diacritics. If omitted, the default profile is used."
+        }
+    },
+    "additionalProperties": false
+}

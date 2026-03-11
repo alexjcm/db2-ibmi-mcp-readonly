@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "tables": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        },
+        "elapsedMs": {
+            "type": "number"
+        },
+        "connectionId": {
+            "type": "string"
+        },
+        "error": {
+            "type": [
+                "object",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "tables",
+        "elapsedMs",
+        "connectionId"
+    ]
+}

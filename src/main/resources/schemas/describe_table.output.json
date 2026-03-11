@@ -1,0 +1,130 @@
+{
+  "type": "object",
+  "properties": {
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "dataType": {
+            "type": "string"
+          },
+          "nullable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "dataType",
+          "nullable"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "primaryKey": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Primary key metadata; null if the table has no primary key",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" }
+            },
+            "required": [ "name" ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "name",
+        "columns"
+      ],
+      "additionalProperties": false
+    },
+    "foreignKeys": {
+      "type": "array",
+      "description": "Present only when includeForeignKeys=true",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "fkTable": {
+            "type": "string"
+          },
+          "fkColumns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "pkTable": {
+            "type": "string"
+          },
+          "pkColumns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "name",
+          "fkTable",
+          "fkColumns",
+          "pkTable",
+          "pkColumns"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "elapsedMs": { "type": "integer" },
+    "connectionId": { "type": "string", "description": "Effective connection profile ID used (default or requested)" },
+    "error": {
+      "type": "object",
+      "description": "Present only on error; structured for agents",
+      "properties": {
+        "code": { "type": "string", "description": "Machine-parseable code, e.g., QUERY_TIMEOUT, NET_UNREACHABLE, AUTH_FAILED, SQL_ERROR, VALIDATION_ERROR" },
+        "message": { "type": "string", "description": "Human-readable message" }
+      },
+      "required": ["code", "message"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "columns",
+    "primaryKey",
+    "elapsedMs"
+  ],
+  "additionalProperties": false
+}
