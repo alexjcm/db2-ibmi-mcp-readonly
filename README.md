@@ -238,6 +238,17 @@ For Windsurf, edit `~/.codeium/windsurf/mcp_config.json`. For Cursor, edit your 
 }
 ```
 
+### Claude Code
+
+#### Method 1: CLI Command (Recommended)
+```bash
+claude mcp add --scope user --transport stdio multi-db-mcp \
+  --env CONNECTIONS_FILE=/path/to/your/connections.json \
+  -- /path/to/multi-db-mcp-readonly/build/native/nativeCompile/multi-db-mcp-readonly
+```
+
+`--scope user` registers the server for all your projects. For JVM mode, replace the binary path with `java -jar /path/to/multi-db-mcp-readonly-*-all.jar`.
+
 ### Codex CLI
 
 #### Method 1: CLI Command (Recommended)

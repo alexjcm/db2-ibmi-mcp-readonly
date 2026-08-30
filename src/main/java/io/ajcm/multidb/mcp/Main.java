@@ -38,7 +38,7 @@ public class Main {
         try {
             String serverVersion = Main.class.getPackage().getImplementationVersion();
             if (serverVersion == null || serverVersion.isBlank()) {
-                serverVersion = "2.0.0";
+                serverVersion = "2.0.1";
             }
 
             // Load configuration with fail-fast validation
